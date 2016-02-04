@@ -1,7 +1,8 @@
 {
-    "name": "asmcrypto.js",
-    "description": "Asm.js implementation of WebCrypto API",
-    "homepage": "https://github.com/vibornoff/asmcrypto.js",
+    "name": "asmcrypto-lite",
+    "version": "1.0.0",
+    "description": "Asm.js implementation of WebCrypto API - lite version",
+    "homepage": "https://github.com/openpgpjs/asmcrypto-lite",
     "main": "asmcrypto.js",
     "license": "MIT",
     "author": {
@@ -23,7 +24,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/vibornoff/asmcrypto.js.git"
+        "url": "https://github.com/openpgpjs/asmcrypto-lite.git"
     },
     "devDependencies": {
         "uglify-js": "vibornoff/UglifyJS2",
@@ -42,7 +43,6 @@
         "node": ">=0.10"
     },
     "scripts": {
-        "prepublish": "grunt",
         "test": "grunt test"
     }
 }

@@ -1,7 +1,9 @@
-asmCrypto [![Build Status](https://travis-ci.org/vibornoff/asmcrypto.js.svg?branch=master)](https://travis-ci.org/vibornoff/asmcrypto.js) [![Selenium Test Status](https://saucelabs.com/buildstatus/vibornoff)](https://saucelabs.com/u/vibornoff) [![Join the chat at https://gitter.im/vibornoff/asmcrypto.js](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/vibornoff/asmcrypto.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+asmCrypto Lite
 =========
 
-JavaScript implementation of popular cryptographic utilities with performance in mind.
+JavaScript implementation of popular cryptographic utilities with performance in mind. The lite version.
+
+**This is a fork of asmcrypto.js that includes only a minimal subset of ciphers required for [OpenPGP.js](http://openpgpjs.org). Please refer to the [main repository](https://github.com/vibornoff/asmcrypto.js) for contributions and feature requests.**
 
 Synopsis
 --------
@@ -66,7 +68,7 @@ Before you start check that [npm](http://npmjs.org/) is installed:
 
 Then download and build the stuff:
 
-    git clone https://github.com/vibornoff/asmcrypto.js.git
+    git clone https://github.com/openpgpjs/asmcrypto-lite.git
     cd asmcrypto.js/
     npm install
 
