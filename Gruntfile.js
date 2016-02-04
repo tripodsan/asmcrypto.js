@@ -545,6 +545,7 @@ module.exports = function ( grunt ) {
 
     grunt.registerTask('sources', sources);
     grunt.registerTask('default', ['sources','concat','uglify']);
+    grunt.registerTask('no-min', ['sources','concat']);
     grunt.registerTask('devel', ['sources','concat','connect','watch']);
     grunt.registerTask('test', ['connect','qunit']);
     grunt.registerTask('sauce', ['connect','saucelabs-qunit']);
