@@ -449,7 +449,7 @@ module.exports = function ( grunt ) {
                 footer: "\n\n'function'==typeof define&&define.amd?define([],function(){return exports}):"
                       + "'object'==typeof module&&module.exports?module.exports=exports:global.asmCrypto=exports;"
                       + "\n\nreturn exports;\n})( {}, function(){return this}() );",
-                sourceMap: true,
+                sourceMap: false,
                 sourceMapStyle: 'link'
             },
             all: {
