@@ -1,4 +1,4 @@
-/*! asmCrypto Lite v1.0.0, (c) 2013 Artem S Vybornov, opensource.org/licenses/MIT */
+/*! asmCrypto Lite v1.0.1, (c) 2013 Artem S Vybornov, opensource.org/licenses/MIT */
 (function ( exports, global ) {
 
 function IllegalStateError () { var err = Error.apply( this, arguments ); this.message = err.message, this.stack = err.stack; }
