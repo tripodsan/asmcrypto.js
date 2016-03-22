@@ -1,6 +1,6 @@
 {
     "name": "asmcrypto-lite",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "Asm.js implementation of WebCrypto API - lite version",
     "homepage": "https://github.com/openpgpjs/asmcrypto-lite",
     "main": "asmcrypto.js",

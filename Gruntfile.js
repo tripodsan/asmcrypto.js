@@ -2,6 +2,7 @@
 var defaults = [
     'globals',
     'aes-cfb',
+    'aes-gcm',
     'sha256',
 ];
 
