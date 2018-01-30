@@ -1,4 +1,4 @@
-/*! asmCrypto Lite v1.1.0, (c) 2013 Artem S Vybornov, opensource.org/licenses/MIT */
+/*! asmCrypto Lite v1.2.0, (c) 2013 Artem S Vybornov, opensource.org/licenses/MIT */
 (function ( exports, global ) {
 
 function IllegalStateError () { var err = Error.apply( this, arguments ); this.message = err.message, this.stack = err.stack; }
@@ -1373,6 +1373,44 @@ function AES_Decrypt_finish ( data ) {
 }
 
 /**
+ * Electronic Code Book Mode (ECB)
+ */
+
+function AES_ECB ( options ) {
+    this.padding = true;
+
+    AES.call( this, options );
+
+    this.mode = 'ECB';
+}
+
+var AES_ECB_prototype = AES_ECB.prototype;
+AES_ECB_prototype.BLOCK_SIZE = 16;
+AES_ECB_prototype.reset = AES_reset;
+AES_ECB_prototype.encrypt = AES_Encrypt_finish;
+AES_ECB_prototype.decrypt = AES_Decrypt_finish;
+
+function AES_ECB_Encrypt ( options ) {
+    AES_ECB.call( this, options );
+}
+
+var AES_ECB_Encrypt_prototype = AES_ECB_Encrypt.prototype;
+AES_ECB_Encrypt_prototype.BLOCK_SIZE = 16;
+AES_ECB_Encrypt_prototype.reset = AES_reset;
+AES_ECB_Encrypt_prototype.process = AES_Encrypt_process;
+AES_ECB_Encrypt_prototype.finish = AES_Encrypt_finish;
+
+function AES_ECB_Decrypt ( options ) {
+    AES_ECB.call( this, options );
+}
+
+var AES_ECB_Decrypt_prototype = AES_ECB_Decrypt.prototype;
+AES_ECB_Decrypt_prototype.BLOCK_SIZE = 16;
+AES_ECB_Decrypt_prototype.reset = AES_reset;
+AES_ECB_Decrypt_prototype.process = AES_Decrypt_process;
+AES_ECB_Decrypt_prototype.finish = AES_Decrypt_finish;
+
+/**
  * Cipher Feedback Mode (CFB)
  */
 
@@ -1938,6 +1976,29 @@ AES_GCM_Decrypt_prototype.finish = AES_GCM_Decrypt_finish;
 // shared asm.js module and heap
 var _AES_heap_instance = new Uint8Array(0x100000),
     _AES_asm_instance  = AES_asm( global, null, _AES_heap_instance.buffer );
+
+/**
+ * AES-ECB exports
+ */
+
+function AES_ECB_encrypt_bytes ( data, key, padding ) {
+    if ( data === undefined ) throw new SyntaxError("data required");
+    if ( key === undefined ) throw new SyntaxError("key required");
+    return new AES_ECB( { heap: _AES_heap_instance, asm: _AES_asm_instance, key: key, padding: padding } ).encrypt(data).result;
+}
+
+function AES_ECB_decrypt_bytes ( data, key, padding ) {
+    if ( data === undefined ) throw new SyntaxError("data required");
+    if ( key === undefined ) throw new SyntaxError("key required");
+    return new AES_ECB( { heap: _AES_heap_instance, asm: _AES_asm_instance, key: key, padding: padding } ).decrypt(data).result;
+}
+
+exports.AES_ECB = AES_ECB;
+exports.AES_ECB.encrypt = AES_ECB_encrypt_bytes;
+exports.AES_ECB.decrypt = AES_ECB_decrypt_bytes;
+
+exports.AES_ECB.Encrypt = AES_ECB_Encrypt;
+exports.AES_ECB.Decrypt = AES_ECB_Decrypt;
 
 /**
  * AES-CFB exports

@@ -1,6 +1,7 @@
 // Default modules to build
 var defaults = [
     'globals',
+    'aes-ecb',
     'aes-cfb',
     'aes-gcm',
     'sha256',
