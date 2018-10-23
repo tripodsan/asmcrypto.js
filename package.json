@@ -1,5 +1,5 @@
 {
-  "name": "asmcrypto.js",
+  "name": "@tripod/asmcrypto.js",
   "version": "2.3.0",
   "description": "Asm.js implementation of WebCrypto API",
   "homepage": "https://github.com/asmcrypto/asmcrypto.js",
