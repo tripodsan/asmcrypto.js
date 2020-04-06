@@ -3,8 +3,8 @@
   "version": "2.3.2-compat",
   "description": "Asm.js implementation of WebCrypto API",
   "homepage": "https://github.com/asmcrypto/asmcrypto.js",
-  "main": "asmcrypto.all.js",
-  "module": "asmcrypto.all.es8.js",
+  "main": "dist_compat/entry-export_all.js",
+  "module": "dist/compat/asmcrypto.all.es8.js",
   "license": "MIT",
   "author": {
     "name": "Ádám Lippai",
@@ -28,6 +28,9 @@
     "url": "https://github.com/asmcrypto/asmcrypto.js.git"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
     "@types/chai": "^4.1.3",
     "@types/mocha": "^5.2.0",
     "@types/node": "^10.1.2",
@@ -45,7 +48,8 @@
     "uglify-js": "^3.3.25"
   },
   "scripts": {
-    "prepare": "node -r esm build.js",
+    "build": "babel dist_es8 -d dist_compat",
+    "_prepare": "node -r esm build.js",
     "test": "node -r esm build.js && mocha -r esm test/*.js",
     "prettier": "prettier --single-quote --trailing-comma all --write \"src/**/*.js\" \"src/**/*.ts\" --print-width 120"
   },
